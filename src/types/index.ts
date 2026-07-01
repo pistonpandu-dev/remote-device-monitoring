@@ -108,3 +108,137 @@ export interface DashboardStats {
   offlineClients: number;
   activeDevices: number;
 }
+// ... previous types ...
+
+export interface ApiResponse<T = any> {
+  success: boolean;
+  data: T;
+  message?: string;
+  error?: string;
+  timestamp: string;
+}
+
+export interface PaginatedResponse<T> {
+  data: T[];
+  pagination: {
+    page: number;
+    limit: number;
+    total: number;
+    totalPages: number;
+  };
+}
+
+export interface FilterOptions {
+  search?: string;
+  status?: string;
+  sortBy?: string;
+  sortOrder?: 'asc' | 'desc';
+  page?: number;
+  limit?: number;
+}
+
+export interface CommandResponse {
+  success: boolean;
+  command: string;
+  result: any;
+  timestamp: string;
+}
+
+export interface WebRTCStream {
+  id: string;
+  deviceId: string;
+  stream: MediaStream;
+  status: 'connecting' | 'connected' | 'disconnected';
+  bitrate: number;
+  fps: number;
+  resolution: string;
+  latency: number;
+}
+
+export interface QRCodeData {
+  id: string;
+  code: string;
+  status: 'waiting' | 'connected' | 'expired';
+  deviceId?: string;
+  createdAt: string;
+  expiresAt: string;
+  refreshInterval: number;
+}
+
+export interface ChatMessage {
+  id: string;
+  contactId: string;
+  contactName: string;
+  phoneNumber: string;
+  message: string;
+  timestamp: string;
+  status: 'sent' | 'delivered' | 'read' | 'failed';
+  isOutgoing: boolean;
+  media?: {
+    type: 'image' | 'video' | 'document' | 'audio';
+    url: string;
+    thumbnail?: string;
+    size: number;
+    mimeType: string;
+  };
+}
+
+export interface ChatContact {
+  id: string;
+  name: string;
+  phoneNumber: string;
+  lastMessage?: string;
+  lastMessageTime?: string;
+  unreadCount: number;
+  isOnline: boolean;
+  avatar?: string;
+}
+
+export interface MapMarker {
+  id: string;
+  position: {
+    lat: number;
+    lng: number;
+  };
+  title: string;
+  description?: string;
+  icon?: string;
+}
+
+export interface RoutePoint {
+  lat: number;
+  lng: number;
+  timestamp: string;
+  speed: number;
+  heading: number;
+  accuracy: number;
+}
+
+export interface SystemMetric {
+  id: string;
+  deviceId: string;
+  timestamp: string;
+  metrics: {
+    cpu: number;
+    memory: number;
+    storage: number;
+    battery: number;
+    network: {
+      type: string;
+      strength: number;
+      speed: number;
+    };
+  };
+}
+
+export interface AuditLog {
+  id: string;
+  userId: string;
+  action: string;
+  resource: string;
+  resourceId?: string;
+  details: any;
+  ipAddress: string;
+  userAgent: string;
+  timestamp: string;
+}
