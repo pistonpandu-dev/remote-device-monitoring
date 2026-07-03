@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: app-config
+  namespace: default
+data:
+  api-url: "https://api.remote-monitor.example.com"
+  websocket-url: "wss://api.remote-monitor.example.com"
+  node-env: "production"
