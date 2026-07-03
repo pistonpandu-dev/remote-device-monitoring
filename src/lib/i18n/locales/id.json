@@ -1,0 +1,93 @@
+{
+  "common": {
+    "welcome": "Selamat Datang",
+    "login": "Masuk",
+    "register": "Daftar",
+    "logout": "Keluar",
+    "save": "Simpan",
+    "cancel": "Batal",
+    "delete": "Hapus",
+    "edit": "Ubah",
+    "search": "Cari",
+    "loading": "Memuat...",
+    "error": "Error",
+    "success": "Sukses",
+    "back": "Kembali",
+    "next": "Berikutnya",
+    "previous": "Sebelumnya",
+    "submit": "Kirim",
+    "reset": "Reset",
+    "confirm": "Konfirmasi"
+  },
+  "auth": {
+    "email": "Email",
+    "password": "Kata Sandi",
+    "confirmPassword": "Konfirmasi Kata Sandi",
+    "forgotPassword": "Lupa Kata Sandi?",
+    "rememberMe": "Ingat saya",
+    "loginTitle": "Masuk ke akun Anda",
+    "registerTitle": "Buat akun baru",
+    "forgotPasswordTitle": "Reset kata sandi Anda",
+    "emailPlaceholder": "Masukkan email Anda",
+    "passwordPlaceholder": "Masukkan kata sandi Anda",
+    "namePlaceholder": "Masukkan nama lengkap Anda"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "totalClients": "Total Klien",
+    "onlineClients": "Klien Online",
+    "offlineClients": "Klien Offline",
+    "activeDevices": "Perangkat Aktif",
+    "recentDevices": "Perangkat Terbaru",
+    "batteryStatus": "Status Baterai",
+    "networkStatus": "Status Jaringan"
+  },
+  "clients": {
+    "title": "Klien",
+    "addClient": "Tambah Klien",
+    "editClient": "Ubah Klien",
+    "deleteClient": "Hapus Klien",
+    "name": "Nama",
+    "email": "Email",
+    "phone": "Telepon",
+    "status": "Status",
+    "devices": "Perangkat",
+    "created": "Dibuat",
+    "actions": "Tindakan",
+    "noClients": "Tidak ada klien ditemukan"
+  },
+  "devices": {
+    "title": "Perangkat",
+    "addDevice": "Tambah Perangkat",
+    "editDevice": "Ubah Perangkat",
+    "deleteDevice": "Hapus Perangkat",
+    "name": "Nama Perangkat",
+    "manufacturer": "Pabrikan",
+    "model": "Model",
+    "androidVersion": "Versi Android",
+    "battery": "Baterai",
+    "status": "Status",
+    "online": "Online",
+    "offline": "Offline",
+    "noDevices": "Tidak ada perangkat ditemukan"
+  },
+  "errors": {
+    "required": "Kolom ini wajib diisi",
+    "invalidEmail": "Alamat email tidak valid",
+    "invalidPassword": "Kata sandi minimal 6 karakter",
+    "passwordMismatch": "Kata sandi tidak cocok",
+    "serverError": "Ada yang salah. Silakan coba lagi nanti.",
+    "networkError": "Error jaringan. Periksa koneksi Anda.",
+    "unauthorized": "Silakan masuk untuk melanjutkan",
+    "forbidden": "Anda tidak memiliki izin untuk mengakses sumber daya ini",
+    "notFound": "Sumber daya tidak ditemukan"
+  },
+  "notifications": {
+    "title": "Notifikasi",
+    "unread": "Belum dibaca",
+    "read": "Dibaca",
+    "markAllRead": "Tandai semua telah dibaca",
+    "clearAll": "Hapus semua",
+    "noNotifications": "Tidak ada notifikasi"
+  }
+}
