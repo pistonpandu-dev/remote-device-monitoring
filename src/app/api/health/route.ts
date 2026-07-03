@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { auth } from '@/lib/firebase/config';
 import { getFirestore } from 'firebase/firestore';
+import packageJson from '../../../../package.json';
 
 export async function GET() {
   try {
@@ -12,6 +13,8 @@ export async function GET() {
       status: 'healthy',
       timestamp: new Date().toISOString(),
       uptime: process.uptime(),
+      version: packageJson.version,
+      environment: process.env.NODE_ENV,
       services: {
         firebase: {
           status: 'connected',
@@ -27,8 +30,13 @@ export async function GET() {
           url: process.env.NEXT_PUBLIC_WEBSOCKET_URL,
         },
       },
-      environment: process.env.NODE_ENV,
-      version: process.env.NEXT_PUBLIC_APP_VERSION || '1.0.0',
+      vercel: {
+        region: process.env.VERCEL_REGION || 'unknown',
+        url: process.env.VERCEL_URL || 'unknown',
+        env: process.env.VERCEL_ENV || 'development',
+      },
+      memory: process.memoryUsage(),
+      uptime: process.uptime(),
     };
 
     return NextResponse.json(healthStatus, { status: 200 });
