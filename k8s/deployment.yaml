@@ -1,0 +1,63 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: remote-monitor-app
+  namespace: default
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: remote-monitor
+  template:
+    metadata:
+      labels:
+        app: remote-monitor
+    spec:
+      containers:
+      - name: app
+        image: remote-monitor:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+        env:
+        - name: NODE_ENV
+          value: "production"
+        - name: NEXT_PUBLIC_FIREBASE_API_KEY
+          valueFrom:
+            secretKeyRef:
+              name: app-secrets
+              key: firebase-api-key
+        - name: NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN
+          valueFrom:
+            secretKeyRef:
+              name: app-secrets
+              key: firebase-auth-domain
+        - name: NEXT_PUBLIC_FIREBASE_PROJECT_ID
+          valueFrom:
+            secretKeyRef:
+              name: app-secrets
+              key: firebase-project-id
+        - name: NEXT_PUBLIC_API_URL
+          valueFrom:
+            configMapKeyRef:
+              name: app-config
+              key: api-url
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "100m"
+          limits:
+            memory: "256Mi"
+            cpu: "200m"
+        livenessProbe:
+          httpGet:
+            path: /api/health
+            port: 3000
+          initialDelaySeconds: 30
+          periodSeconds: 10
+        readinessProbe:
+          httpGet:
+            path: /api/health
+            port: 3000
+          initialDelaySeconds: 5
+          periodSeconds: 5
